@@ -1,0 +1,42 @@
+-- Customers Table
+CREATE TABLE CUSTOMERS (
+	CUSTOMER_ID SERIAL PRIMARY KEY,
+	FIRST_NAME VARCHAR(100),
+	LAST_NAME VARCHAR(100)
+);
+
+-- Concessions Table
+CREATE TABLE CONCESSIONS (
+	SNACK_ID SERIAL PRIMARY KEY,
+	SNACK_NAME VARCHAR(100),
+	CUSTOMER_ID INTEGER NOT NULL,
+	FOREIGN KEY (CUSTOMER_ID) REFERENCES CUSTOMERS(CUSTOMER_ID)
+);
+-- I related customer_id to concessions to show WHO was getting the snack
+
+-- Movies Table
+CREATE TABLE MOVIES (
+	MOVIE_ID SERIAL PRIMARY KEY,
+	MOVIE_NAME VARCHAR(150)
+);
+
+-- Tickets Table
+	CREATE TABLE TICKETS (
+		TICKET_ID SERIAL PRIMARY KEY,
+		CUSTOMER_ID INTEGER NOT NULL,
+		MOVIE_ID INTEGER NOT NULL,
+		FOREIGN KEY (CUSTOMER_ID) REFERENCES CUSTOMERS(CUSTOMER_ID),
+		FOREIGN KEY (MOVIE_ID) REFERENCES MOVIES(MOVIE_ID)
+	);
+-- I related customer_id to tickets to show WHO posseses said ticket
+-- I related movie_id to tickets to show WHAT movie the ticket is for
+
+
+
+
+
+
+
+
+
+
